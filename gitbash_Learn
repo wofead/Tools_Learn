@@ -1,0 +1,14 @@
+						This note is for learning git bash 
+start:before you commit you should add the file into cache 
+git status -s   look up the file is added  or not 
+git add + file1 file2
+git add .add all this catalog all files git add * add all file include child catalog
+git status -s display file info with simple format
+git status usually have two column,one is for workspace another is for cache
+
+
+git diff : appear the difference of not add cache but changed file
+git diff --cached: check the comment which will be commited 
+git diff is git status detailed 
+git diff --stat is between status and diff
+ 
