@@ -21,7 +21,7 @@ catalogue structure
     bin local src   
 
 在命令窗口下
-ctrl+alt+t在同一个窗口下创建一个新的命令窗口，可以通过 alt+num来切换，ctrl+d来关闭
+ctrl+shift+t在同一个窗口下创建一个新的命令窗口，可以通过 alt+num来切换，ctrl+d来关闭
 
 ctrl+win+方向键来放大缩小
 长按win键来查看快捷键
