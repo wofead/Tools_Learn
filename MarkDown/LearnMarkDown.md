@@ -143,3 +143,9 @@ __double underscores__
 2. gramar
 
 #### f4 up or down display f5 lift or right display  f6  display in browser  ####
+#### Table
+
+|1  |  2|  3|
+|---|---|---|
+|yi|er|san|
+
