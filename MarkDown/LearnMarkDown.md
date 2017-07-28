@@ -145,7 +145,7 @@ __double underscores__
 #### f4 up or down display f5 lift or right display  f6  display in browser  ####
 #### Table
 
-|1  |  2|  3|
-|---|---|---|
-|yi|er|san|
+|向左靠齐  | 居中|  向右靠齐|
+|:---|:---:|:---:|
+|yi   |er   |san   |
 
