@@ -218,4 +218,14 @@ cmp [-s] file1 file2
 patch更新和还原文件
 ## 文件打印准备pr
 pr /etc/man.config
+## 查找
+locate [-ir] keyword
+参数 : 
+-i : 忽略大小写
+-r : 后面可以带正则表达式  
 
+whereis 寻找特定文件
+
+file 查看文件的类型
+
+touch 文件的创建
