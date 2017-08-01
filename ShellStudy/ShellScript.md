@@ -121,7 +121,18 @@ until [conditon]  //条件成立使终止
 do  
     程序段  
 done  
+
 for var in con1 con2 con3 ..  //第一次循环var=con1,第二次var=con2, (seq 1 100) 从1到100连续  
 do  
     程序段  
 done  
+
+for ((初始值;限制值;执行步长))
+do
+    程序段
+done
+## shell scropt的追踪与调试
++ sh [-nvx] shell.sh
+  + -n:不知sehll，仅查询语法的问题
+  + -v:在执行script执行，先将script的内容输出到屏幕上
+  + -x:将使用到的script内容显示到屏幕上

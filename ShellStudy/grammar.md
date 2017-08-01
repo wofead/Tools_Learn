@@ -229,4 +229,3 @@ whereis 寻找特定文件
 file 查看文件的类型  
   
 touch 文件的创建  
-# Test  
