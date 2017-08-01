@@ -136,3 +136,5 @@ done
   + -n:不知sehll，仅查询语法的问题
   + -v:在执行script执行，先将script的内容输出到屏幕上
   + -x:将使用到的script内容显示到屏幕上
+## 常用的手段
++ echo "qian1234zhao" | sudo -S <command> 在脚本中自动加载密码
