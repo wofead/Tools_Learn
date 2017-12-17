@@ -517,3 +517,9 @@ Date时间类，直接new Date();是获取当前的时间。
         tick 4 
         tick 5 
         Time's Up!
+
+### String 
+1. length：可以通过length属性来获取string的长度
+2. 可以利用contact来连接字符串
+3. 截取字符串，substr() and sunstring(); 他们都有两个参数，一个是从第几位开始，输出多少位，一个是从第几位到第几位
+4. slice(),参数可以为负，这样倒着切割
