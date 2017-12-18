@@ -526,38 +526,151 @@ Date时间类，直接new Date();是获取当前的时间。
 
         var str:String = "Give me\t5." 
         var a:Array = str.split(/\s+/); // a == ["Give","me","5."]
-1. 
 
+### 数组
+#### Array
+1. var names:Array = ["John", "Jane", "David"];
+2. var names:Array = new Array(3);
+3. var names:Array = new Array("John", "Jane", "David"); 
+4. var names:Array = ["John", "Jane", "David"];
+#### Vector.<Type>
+1. var v:Vector.<String>; 
+2. v = new Vector.<String>();
+3. var names:Vector.<String> = new Vector.<String>(); 
+4. var numbers:Vector.<int> = Vector.<int>("1.5", "17", "Waffles"]); 
+####检索值和删除数组元素
+1. pop(),删除数组末尾的元素
+2. shift()，删除数组头部的元素
+3. slice()，参数不定，第一个参数为从数组下标几开始替换，第二个参数为替换几个，后面的参数为替换的值
+4. delete(),删除数组元素的值，那个值被删除后变成undefined
+5. 可以通过控制数组的长度来删除数组后面的元素
+#### 数组的排序
+1. reverse() 将数组中的元素进行反转排序
+1. sort()的基本排序，仅限于array
+    * 排序区分大小写，也就是说大写字符优先于小写字符。
+    * 排序按照升序进行，也就是说低位字符代码（例如 A）优先于高位字符代码（例如 B）。
+    * 排序将相同的值互邻放置，并且不区分顺序。
+    * 排序基于字符串，也就是说，在比较元素之前，先将其转换为字符串（例如，10 优先于 3，因为相对于字符串 "3" 而言，字符串 "1" 具有低位字符代码）。
+1. ssortOn() 方法（仅适用于 Array 类）
 
-### 正则表达式
+        var poets:Array = new Array(); 
+        poets.push({name:"Angelou", born:"1928"}); 
+        poets.push({name:"Blake", born:"1757"}); 
+        poets.push({name:"cummings", born:"1894"}); 
+        poets.push({name:"Dante", born:"1265"}); 
+        poets.push({name:"Wang", born:"701"});
+        poets.sortOn("born", Array.NUMERIC); 
+        for (var i:int = 0; i < poets.length; ++i) 
+        { 
+            trace(poets[i].name, poets[i].born); 
+        } 
+        /* output: 
+        Wang 701 
+        Dante 1265 
+        Blake 1757 
+        cummings 1894 
+        Angelou 1928 
+        */
+#### 查询数组
+1. concat(),连接数组，返回新的数组;slice()切割数组
 
-|元字符|描述|
- |:--:|:--:|
-|^（尖号）|匹配字符串的开头.尖号用在字符类的开头时表示符号反转而非字符串的开头|
-|$（美元符号）|匹配字符串的结尾。|
-|\ (反斜杠)|对特殊字符的特殊元字符含义进行转义。|
-|. (点)|匹配任意单个字符。只有设置 s (dotall) 标志时，点才匹配换行字符 (\n)。|
-|*（星号）|匹配前面重复零次或多次的项目。|
-|+（加号）|匹配前面重复一次或多次的项目。|
-|?（问号）|匹配前面重复零次或一次的项目。|
-|( 和 )|在正则表达式中定义组。|
-|[ 和 ]|定义字符类，字符类定义单个字符可能的匹配|
-|\|（竖线）|用于逻辑“或”操作，匹配左侧或右侧的部分|
+        var array1:Array = ["alpha", "beta"]; 
+        var array2:Array = array1.concat("gamma", "delta"); 
+        trace(array2); // output: alpha,beta,gamma,delta 
+        
+        var array3:Array = array1.concat(array2); 
+        trace(array3); // output: alpha,beta,alpha,beta,gamma,delta 
+        
+        var array4:Array = array3.slice(2,5); 
+        trace(array4); // output: alpha,beta,gamma
+1. join() 和 toString() 方法查询数组，并将其内容作为字符串返回。join可以带参数
 
-|元序列|描述|
- |:--:|:--:|
-|{n},{n,},和{n,n}|指定前一项目的数值数量或数量范围：/A{27}/ 匹配重复 27 次的字符 A。/A{3,}/ 匹配重复 3 次或更多次的字符 A。/A{3,5}/ 匹配重复 3 到 5 次的字符 A|
-|\b|匹配单词字符和非单词字符之间的位置。|
-|\B|匹配两个单词字符之间的位置。也匹配两个非单词字符之间的位置。|
-|\d|匹配十进制数字。|
-|\D|匹配除数字以外的任何字符。|
-|\f|匹配换页符。|
-|\n|匹配换行符|
-|\r|匹配回车符|
-|\s|匹配除空白字符以外的任何字符。|
-|\t|匹配制表符。|
-|\unnnn|匹配字符代码由十六进制数字 nnnn 指定的 Unicode 字符。例如，\u263a 是一个笑脸字符。|
-|\v|匹配垂直换页符。|
-|\w|匹配单词字符（A-Z、a-z、0-9 或 _）|
-|\W|匹配除单词字符以外的任何字符。|
-|\\\xnn|匹配具有指定 ASCII 值（由十六进制数字 nn 定义）的字符。|
+    var rivers:Array = ["Nile", "Amazon", "Yangtze", "Mississippi"]; 
+    var riverCSV:String = rivers.toString(); 
+    trace(riverCSV); // output: Nile,Amazon,Yangtze,Mississippi 
+    var riverPSV:String = rivers.join("+"); 
+    trace(riverPSV); // output: Nile+Amazon+Yangtze+Mississippi
+**在嵌套的数组中，无论为主数组元素指定的分隔符是什么，为嵌套 Array 或 Vector 实例返回的值始终以逗号作为分隔符**
+
+        var nested:Array = ["b","c","d"]; 
+        var letters:Array = ["a",nested,"e"];  
+        var joined:String = letters.join("+"); 
+        trace(joined); // output: a+b,c,d+e
+#### 关联数组
+
+        var monitorInfo:Object = {type:"Flat Panel", resolution:"1600 x 1200"}; 
+        trace(monitorInfo["type"], monitorInfo["resolution"]);  
+        // output: Flat Panel 1600 x 1200
+1. object，还可以通过可以使用数组访问 ([]) 运算符或点运算符 (.) 向数组添加新值。
+
+        var monitorInfo:Object = new Object();
+        monitorInfo["aspect ratio"] = "16:10"; // bad form, do not use spaces 
+        monitorInfo.colors = "16.7 million"; 
+        trace(monitorInfo["aspect ratio"], monitorInfo.colors); 
+        // output: 16:10 16.7 million
+2. array来构建关联数组
+
+        var monitorInfo:Array = new Array(); 
+        monitorInfo["type"] = "Flat Panel"; 
+        monitorInfo["resolution"] = "1600 x 1200"; 
+        trace(monitorInfo["type"], monitorInfo["resolution"]);  
+        // output: Flat Panel 1600 x 1200
+#### 对象键和内存管理
+
+        var myObject:Object = new Object();
+        //只要有对此对象的引用，垃圾回收系统就不会恢复此对象占用的内存。如果更改 myObject 的值以使其指向其它对象或将其设置为值 null，并且没有对原始对象的其它引用，则可以对原始对象占用的内存进行垃圾回收。
+        var myObject:Object = new Object(); 
+        var myMap:Dictionary = new Dictionary(); 
+        myMap[myObject] = "foo";
+        //如果将 myObject 用作 Dictionary 对象中的键，则会创建对原始对象的另一个引用
+        //使 myObject 引用的对象能够进行垃圾回收，您必须删除对它的所有引用。在此情况下，必须更改 myObject 的值并从 myMap 中删除 myObject 键
+        myObject = null; 
+        delete myMap[myObject];
+
+### 错误处理
+1.  try..catch..finally 语句的语法
+
+        try 
+        { 
+            // some code that could throw an error 
+        } 
+        catch (err:Error) 
+        { 
+            // code to react to the error 
+        } 
+        finally 
+        { 
+            // Code that runs whether or not an error was thrown. This code can clean 
+            // up after the error, or take steps to keep the application running. 
+        }
+2. throw语句
+
+        var MyError:Error = new Error("Encountered an error with the numUsers value", 99); 
+        var numUsers:uint = 0; 
+        try 
+        { 
+            if (numUsers == 0) 
+            { 
+                trace("numUsers equals 0"); 
+            } 
+        } 
+        catch (error:uint) 
+        { 
+            throw MyError; // Catch unsigned integer errors. 
+        } 
+        catch (error:int) 
+        { 
+            throw MyError; // Catch integer errors. 
+        } 
+        catch (error:Number) 
+        { 
+            throw MyError; // Catch number errors. 
+        } 
+        catch (error:*) 
+        { 
+            throw MyError; // Catch any other error. 
+        } 
+        finally  
+        { 
+            myFunction(); // Perform any necessary cleanup here. 
+        }
